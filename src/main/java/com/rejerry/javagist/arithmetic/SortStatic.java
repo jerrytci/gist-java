@@ -1,6 +1,6 @@
 package com.rejerry.javagist.arithmetic;
 
-public class sort {
+public class SortStatic {
     private static int[] array1 = new int[]{4, 2, 8, 1, 3, 9, 5, 6};
 
     private static void printArray(int[] array, String method, boolean begin) {
