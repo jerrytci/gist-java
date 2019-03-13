@@ -21,7 +21,6 @@ public class QuickSort {
 
     public int quickSortRecursion(int[] array, int low, int right) {
         int pivot = low;
-        System.out.println("pivot = " + pivot);
         int time = 0;
         for (int i = pivot + 1; i <= right; i++) {
             if (array[i] < array[pivot]) {
@@ -31,8 +30,6 @@ public class QuickSort {
         }
         pivot += time;
         swap(array, low, pivot);
-        System.out.println("pivot = " + pivot);
-        Print.printArray(array);
         return pivot;
     }
 
