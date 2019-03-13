@@ -23,11 +23,7 @@ public class QuickSort {
         int pivot = left;
         int index = pivot + 1;
         for (int i = index; i <= right; i++) {
-            Print.printArray(arr);
-
             if (arr[i] < arr[pivot]) {
-                System.out.println("  i = " + i);
-                System.out.println("  index = " + index);
                 swap(arr, i, index);
                 index++;
             }

@@ -1,7 +1,7 @@
 package com.rejerry.javagist.arithmetic;
 
-class Print {
-    static void printArray(int[] array) {
+public class Print {
+    public static void printArray(int[] array) {
         StringBuilder res = new StringBuilder();
         for (int i : array) {
             res.append(i).append(",");
