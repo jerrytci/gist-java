@@ -5,7 +5,7 @@ import com.rejerry.javagist.data.RJData;
 
 public class QuickSort {
     public static void main(String[] args) {
-        int[] ints = RJData.getIntArray();
+        int[] ints = RJData.getLargeIntArray(20);
         Print.printArray(ints);
         new QuickSort().quickSort(ints, 0, ints.length - 1);
         Print.printArray(ints);
