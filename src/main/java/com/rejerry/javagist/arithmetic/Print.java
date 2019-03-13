@@ -1,7 +1,7 @@
 package com.rejerry.javagist.arithmetic;
 
 class Print {
-    static void printArray(int[] array, String method, boolean begin) {
+    public static void printArray(int[] array, String method, boolean begin) {
         String label = begin ? "" : ".end";
         System.out.println(method + label);
 

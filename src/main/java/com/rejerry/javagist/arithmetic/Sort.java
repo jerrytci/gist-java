@@ -65,8 +65,7 @@ public class Sort {
         System.out.println("time: " + time);
     }
 
-    // 冒泡排序; 升序
-    //num-1趟，j-1注意不要数组越界
+    /**/
     private void bubble2(int[] array) {
         int time = 0;
 
@@ -98,4 +97,7 @@ public class Sort {
 
         System.out.println("time: " + time);
     }
+
+
+
 }
