@@ -5,7 +5,7 @@ import com.rejerry.javagist.data.RJData;
 public class SortPractice {
     public static void main(String[] args) {
         int[] ints = RJData.getIntArray();
-        Print.printArray(ints, "sort", true);
+        Print.printArray(ints);
         int temp = -1;
         int time = 0;
 
@@ -22,6 +22,6 @@ public class SortPractice {
             }
         }
         System.out.println("time: " + time);
-        Print.printArray(ints, "sort", false);
+        Print.printArray(ints);
     }
 }

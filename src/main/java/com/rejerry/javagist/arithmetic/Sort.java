@@ -4,23 +4,23 @@ public class Sort {
     private int[] array1 = new int[]{4, 2, 8, 1, 3, 9, 5, 6};
 
     private void testBubble(int[] array) {
-        Print.printArray(array, "bubble", true);
+        Print.printArray(array);
         bubble(array);
-        Print.printArray(array, "bubble", false);
+        Print.printArray(array);
         System.out.println();
     }
 
     private void testBubble2(int[] array) {
-        Print.printArray(array, "bubble2", true);
+        Print.printArray(array);
         bubble2(array);
-        Print.printArray(array, "bubble2", false);
+        Print.printArray(array);
         System.out.println();
     }
 
     private void testBubble22(int[] array) {
-        Print.printArray(array, "bubble22", true);
+        Print.printArray(array);
         bubble22(array);
-        Print.printArray(array, "bubble22", false);
+        Print.printArray(array);
         System.out.println();
     }
 
