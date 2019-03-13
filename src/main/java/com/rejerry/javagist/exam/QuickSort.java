@@ -33,6 +33,20 @@ public class QuickSort {
         return pivot;
     }
 
+    public int quickSortRecursionDesc(int[] array, int low, int right) {
+        int pivot = right;
+        int time = 0;
+        for (int i = right - 1; i >= low; i--) {
+            if(array[i] > array[pivot]){
+                swap(array, i, pivot-1-time);
+                time++;
+            }
+        }
+        pivot-=time;
+        swap(array, right, pivot);
+        return pivot;
+    }
+
     private void swap(int[] array, int i, int i1) {
         int temp = array[i1];
         array[i1] = array[i];
