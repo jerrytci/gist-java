@@ -6,10 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Map;
-
 @RestController
-public class HelloController {
+@RequestMapping(value = "/up21")
+public class UP21Controller {
 
     @RequestMapping("/hello")
     public String index() {
