@@ -1,4 +1,5 @@
 package com.rejerry.javagist.util;
+
 import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cglib.beans.BeanCopier;
@@ -25,12 +26,13 @@ public class BeanCopierUtil {
      * 使用BeanCopier拷贝对象属性
      * 1. target不能使用链式调用 {@link lombok.experimental.Accessors#chain}
      * 2. 只会拷贝source,target属性类型和名称完全一致的字段
-     * @param source 源
-     * @param target 目标
-     * @param useCache 是否使用缓存
+     *
+     * @param source    源
+     * @param target    目标
+     * @param useCache  是否使用缓存
      * @param converter converter对象
-     * @param <S> 源对象泛型
-     * @param <T> 目标对象泛型
+     * @param <S>       源对象泛型
+     * @param <T>       目标对象泛型
      * @return 返回target对象
      */
     public <S, T> T copy(S source, T target, boolean useCache, Converter converter) {
@@ -51,12 +53,13 @@ public class BeanCopierUtil {
      * 使用BeanCopier拷贝对象属性
      * 1. target不能使用链式调用 {@link lombok.experimental.Accessors#chain}
      * 2. 只会拷贝source,target属性类型和名称完全一致的字段
-     * @param source 源
+     *
+     * @param source      源
      * @param targetClass 目标类对象
-     * @param useCache 是否使用缓存
-     * @param converter converter对象
-     * @param <S> 源对象泛型
-     * @param <T> 目标对象泛型
+     * @param useCache    是否使用缓存
+     * @param converter   converter对象
+     * @param <S>         源对象泛型
+     * @param <T>         目标对象泛型
      * @return 返回target对象
      */
     public <S, T> T copy(S source, Class<T> targetClass, boolean useCache, Converter converter) {
