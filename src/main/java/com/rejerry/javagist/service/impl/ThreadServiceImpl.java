@@ -19,19 +19,16 @@ public class ThreadServiceImpl implements ThreadService, InitializingBean, Dispo
     private static final long TIME = 100;
     private static final long TIME_OUT_1 = 100L;
     private static final long TIME_OUT_2 = 200L;
-    private static final long TIME_OUT_10 = 1000L;
-    private static final long TIME_OUT_20 = 2000L;
-    private static final long TIME_OUT_50 = 5000L;
-    private static final long TIME_OUT_500 = 50000L;
+    private static final long TIME_OUT_600 = 60000L;
 
 
     @Override
-    public void destroy() throws Exception {
+    public void destroy() {
         service.shutdown();
     }
 
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
         service = new ThreadPoolExecutor(20, 50, 60L
                 , TimeUnit.SECONDS, new LinkedBlockingQueue<>(2000), new ThreadPoolExecutor.CallerRunsPolicy());
     }
@@ -81,14 +78,13 @@ public class ThreadServiceImpl implements ThreadService, InitializingBean, Dispo
     }
 
 
-
     @Override
     public boolean getDataTimeOutFillQueue() {
         List<FutureTask> futureTasks = new ArrayList<>();
         for (int i = 0; i < TIME; i++) {
-            FutureTask futureTask = new FutureTask(()->{
+            FutureTask futureTask = new FutureTask(() -> {
                 try {
-                    Thread.sleep(TIME_OUT_500);
+                    Thread.sleep(TIME_OUT_600);
                 } catch (InterruptedException e) {
 
                 }
@@ -114,21 +110,25 @@ public class ThreadServiceImpl implements ThreadService, InitializingBean, Dispo
         watch.start("test-timeout");
         List<FutureTask> futureTasks = new ArrayList<>();
         for (int i = 0; i < TIME; i++) {
-            FutureTask futureTask = new FutureTask(()->{
+            FutureTask futureTask = new FutureTask(() -> {
                 try {
-                    Thread.sleep(TIME_OUT_10);
+                    Thread.sleep(TIME_OUT_1);
+                    return 1;
                 } catch (InterruptedException e) {
-
+                    return -1;
                 }
-                return true;
             });
             futureTasks.add(futureTask);
             service.submit(futureTask);
         }
 
+        List<Integer> successCount = new CopyOnWriteArrayList<>();
         for (FutureTask futureTask : futureTasks) {
             try {
-                futureTask.get(TIME_OUT_20, TimeUnit.MILLISECONDS);
+                Integer data = (Integer) futureTask.get(TIME_OUT_2, TimeUnit.MILLISECONDS);
+                if (data != null) {
+                    successCount.add(data);
+                }
             } catch (InterruptedException | ExecutionException | TimeoutException e) {
 //                if (!futureTask.isDone() && !futureTask.isCancelled()) {
 //                    futureTask.cancel(true);
@@ -138,7 +138,7 @@ public class ThreadServiceImpl implements ThreadService, InitializingBean, Dispo
         }
         watch.stop();
         double totalTimeSeconds = watch.getTotalTimeSeconds();
-        log.info("totalTimeSeconds = " + totalTimeSeconds);
+        log.info("totalTimeSeconds {}, successCount {}" + totalTimeSeconds, successCount);
         return false;
     }
 }
