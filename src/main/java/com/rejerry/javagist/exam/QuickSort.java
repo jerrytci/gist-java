@@ -37,12 +37,12 @@ public class QuickSort {
         int pivot = right;
         int time = 0;
         for (int i = right - 1; i >= low; i--) {
-            if(array[i] > array[pivot]){
-                swap(array, i, pivot-1-time);
+            if (array[i] > array[pivot]) {
+                swap(array, i, pivot - 1 - time);
                 time++;
             }
         }
-        pivot-=time;
+        pivot -= time;
         swap(array, right, pivot);
         return pivot;
     }

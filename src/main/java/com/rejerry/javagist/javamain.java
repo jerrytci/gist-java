@@ -14,7 +14,7 @@ public class javamain {
 //        testPredicate();
     }
 
-    private static void testFunction(){
+    private static void testFunction() {
         Function<String, Boolean> keyEventDispatcher = s -> s.length() > 0;
         System.out.println("keyEventDispatcher.apply(\"one\") = " + keyEventDispatcher.apply("one"));
         System.out.println("keyEventDispatcher.apply(\" \") = " + keyEventDispatcher.apply(" "));
@@ -28,9 +28,9 @@ public class javamain {
         System.out.println("predicate1.test(\"tianciv2\") = " + predicate1.test("tianciv2"));
     }
 
-    private static void testFunction2(){
-        Function<Integer, Integer> aa = a -> a*3;
-        Function<Integer, Integer> bb = b -> b+2;
+    private static void testFunction2() {
+        Function<Integer, Integer> aa = a -> a * 3;
+        Function<Integer, Integer> bb = b -> b + 2;
         Integer apply = aa.andThen(bb).apply(5);
         System.out.println("apply = " + apply);
         Integer apply1 = aa.compose(bb).andThen(bb).apply(5);
@@ -38,7 +38,7 @@ public class javamain {
 
     }
 
-    private static void testPredicate(){
+    private static void testPredicate() {
         Predicate<String> predicate = (s) -> s.length() > 0;
 
         predicate.test("foo");              // true
